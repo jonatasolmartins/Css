@@ -1,0 +1,167 @@
+
+/* Set the default font size to be 16px. 
+This is the font size that browsers usually use when you don't specify a font size.
+ This is also the font size that browsers use when you use the rem unit.
+ The rem unit is relative to the root element, which is the html element.
+ So, if you set the font size of the html element to 16px, then 1rem is equal to 16px. 
+ If you set the font size of the html element to 20px, then 1rem is equal to 20px. */
+
+ html {
+    font-size: 16px;
+    background-color: var(--darkblue);
+    /* Sets the defaulr color of all element's text */
+    color: var(--white);
+}
+
+/* Defines global variables that can be used throughout the document. 
+The variables are defined using the var() function and are accessed using the var() function. */
+
+:root {
+    --white: #ffffff;
+    --margent: 	#A300A3;
+    --hotmag: #ff0000;
+    --aqua: #00ffff;
+    --darkblue :  #161629;
+    --lighgray: #A9A9A9;
+    --mono: 'Roboto Mono', monospace;
+    --sans: 'Liberation Sans', sans-serif;
+}
+/* This sets the default margin, padding, and box-sizing properties for all elements on the webpage.
+ The asterisk symbol (*) is a universal selector, which means that it selects all elements on the page. */
+* {
+    margin: 0;
+    padding: 0;
+    /* Takes the border and padding into account when you set the width and height of an element. */
+    box-sizing: border-box;
+}
+
+body {
+    margin-left: 2em;
+    margin-right: 2rem;
+    padding-top: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 0rem 2rem;
+    margin: 0;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav [class*="fa-"] {
+    font-size: 150%;
+    color: var(--aqua);
+}
+
+nav [class*="fa-code"] {
+    font-size: 99%;
+    color: var(--aqua);
+}
+
+nav a:hover,
+nav [class*="fa-"]:hover {
+    color: var(--margent);
+}
+
+header span {
+    color: var(--lighgray);
+    font-size: 3rem;
+    font-family: var(--mono);
+    display: block;
+}
+
+nav li:first-child {
+    flex-basis: 100%;
+    text-align: center;
+}
+ul li {
+    /* Set the li display inline-block so that the list items are displayed on the same line.  */
+     display: inline-block;
+    /* Set the padding to 1rem on the top and bottom and 1rem on the left and right. */
+    padding: 1rem;
+}
+
+button {
+    background-color: var(--margent);
+    color: var(--white);
+    border-radius: 5px;
+    /* Removes the default border that is displayed around the button. */
+    border: none;
+    padding: 0.5rem;
+}
+
+button:hover {
+    color: var(--white);
+    background-color: var(--hotmag);
+}
+
+a {
+    color: var(--margent);
+}
+
+/* The :hover pseudo-class is used to target an element when the user hovers over it with their mouse.
+ In this case, it targets anchor elements. */
+a:hover {
+    /* When an anchor element is hovered over, the color property is set to the value of the --hotmag variable using the var() function.
+     This means that the color of the text will change to the value of the --hotmag variable when the user hovers over the link. */
+    color: var(--hotmag);
+    /* The text-decoration property is also set to none, which means that the underline that is typically displayed under links will be removed when the user hovers over the link. */
+    text-decoration: none;
+}
+
+#intro {
+    padding-bottom: 10rem;
+    display: block;
+}
+
+#intro p {
+    /* The font-size property is set to 1rem which means that the font size of the text will be 16px.
+     This is because the font size of the html element is set to 16px. */
+    font-size: 1rem;
+    /* The line-height property is set to 1.5 which means that the line height of the text will be 1.5 times the font size of the text.
+     Since the font size of the text is 16px, the line height of the text will be 24px. */
+     /* I omitted the unit of measurement so the size is relative to the font size of the text and not a fixed value. */
+    line-height: 1.5;
+}
+/* 
+The #intro .name selector targets the element with the class of name that is a child of an element with the ID of intro.
+This can be used to style a specific section of the webpage, such as an introduction section. */
+#intro .name {
+    font-family: var(--mono);
+}
+
+/* The .name span selector targets all <span> elements that are descendants of an element with the class of name. 
+The <span> element is a generic inline container that can be used to group text or other inline elements. */
+.name span {
+    font-family: var(--sans);
+    /* Font-size will be 64px since html font-size is set to 16px */
+    font-size: 4rem;
+    color: var(--aqua);
+    /* An span element is an inline element by default, which means that it will be displayed on the same line as the text that comes before and after it.
+    So to make the span element display on its own line, the display property is set to block. */
+    display: block;
+}
+
+#intro h2 {
+    font-size: 4rem;
+}
+
+@media (min-width: 850px) {
+   nav {
+       max-width: 1200px;
+       margin: 0 auto;
+   }
+
+   nav li:first-child {
+        flex-basis: auto;
+        text-align: left;
+        margin-right: auto;
+   }
+}
