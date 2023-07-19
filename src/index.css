@@ -44,8 +44,9 @@ body {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     padding: 0rem 0rem 2rem;
     margin: 0;
     gap: 1rem;
@@ -61,7 +62,7 @@ nav [class*="fa-"] {
     color: var(--aqua);
 }
 
-nav [class*="fa-code"] {
+nav h1 [class*="fa"] {
     font-size: 99%;
     color: var(--aqua);
 }
@@ -71,23 +72,27 @@ nav [class*="fa-"]:hover {
     color: var(--margent);
 }
 
-header span {
-    color: var(--lighgray);
-    font-size: 3rem;
-    font-family: var(--mono);
+header {
     display: block;
 }
 
 nav li:first-child {
+    /* The first li element is given a flex-basis of 100% so that it takes up the entire width of the page. */
     flex-basis: 100%;
     text-align: center;
 }
-ul li {
-    /* Set the li display inline-block so that the list items are displayed on the same line.  */
-     display: inline-block;
-    /* Set the padding to 1rem on the top and bottom and 1rem on the left and right. */
+
+ul {
+    /* The display property sets how an element should be displayed on the webpage. 
+    In this case, the display property is set to contents.
+    This value causes the <ul> element to behave as if it is not there,
+     and its child elements will be displayed as if they are direct children of the parent element (nav). */
+    display: contents;
     padding: 1rem;
+    /* Removes the dot that is displayed before each list item. */
+    list-style-type: none;
 }
+
 
 button {
     background-color: var(--margent);
@@ -101,10 +106,6 @@ button {
 button:hover {
     color: var(--white);
     background-color: var(--hotmag);
-}
-
-#menu {
-    display: none;
 }
 
 a {
@@ -158,50 +159,27 @@ The <span> element is a generic inline container that can be used to group text 
     font-size: 4rem;
 }
 
-@media (min-width: 1450px) {
-   header {
-       max-width: 1200px;
+/* When the page size is 850px or larger, the @media rule will be applied. */
+@media (min-width: 850px) {
+   nav {
+       /* Fix the max size of the nav bar to 1250px and center it.  */
+       max-width: 1250px;
        margin: 0 auto;
    }
 
    nav li:first-child {
         flex-basis: auto;
+        /* Set the text-align property to left so that the text(li Projects) is aligned to the left side of the page. */
         text-align: left;
+        /* The flex box for the nav centered the li elements, so the remaining amount of space on the page is distributed to the left and right side of the li elements.
+        By setting the margin: right: auto, the remaining amount of space is put to the right side of the first li elements(Projects) and the others li elements are pushed to the right side of the page.
+        (Projects .....SPace..... About Contact) */
         margin-right: auto;
    }
 
    section {
-       max-width: 1200px;
+       max-width: 1250px;
        margin: 0 auto;
    }
 
-}
-
-@media screen and (max-width: 750px) {
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0rem 0rem 2rem;
-        margin: 0;
-        gap: 4rem;
-        flex: 1;
-    }
-
-    header span {
-        display: none;
-    }
-    
-    nav ul {
-        display: none;
-    }
-
-    #logo {
-        display: flex;
-        justify-content: center;
-    }
-
-    #menu {
-        display: block;
-    }
 }
