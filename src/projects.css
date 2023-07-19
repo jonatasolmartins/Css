@@ -1,0 +1,120 @@
+:root {
+    --white: #ffffff;
+    --margent: 	#A300A3;
+    --hotmag: #ff0000;
+    --aqua: #00ffff;
+    --darkblue :  #161629;
+    --darkestblue :  #080812;
+    --lighgray: #A9A9A9;
+    --mono: 'Roboto Mono', monospace;
+    --sans: 'Liberation Sans', sans-serif;
+}
+
+ html {
+    font-size: 16px;
+    background-color: var(--darkblue);
+    color: var(--white);
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+body {
+    margin-left: 2em;
+    margin-right: 2rem;
+    padding-top: 1rem;
+}
+
+header {
+   position: relative;
+   margin-top: 2rem;
+   bottom: 1rem;
+   left: 2.5rem;
+}
+
+header .avatar {
+    width: 7rem;
+    height: 7rem;
+    border: 1px solid var(--darkestblue);
+    border-radius: 5rem;
+    background-color: var(--lighgray);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1rem;
+}
+
+main section:first-child {
+    flex: 0.5;
+    /* Align the li/text in the center of the section. */
+    text-align: center;
+    background-color: var(--darkestblue);
+    /* Strech the section to the full height of the viewport. */
+    max-height: 100vh;
+    min-height: 95vh;
+    border-radius: 5px;
+}
+
+article {
+    flex: 3;
+    /* display: inline-block; */
+    text-align: center;
+}
+
+nav {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+    padding: 0rem 0rem 2rem;
+    margin: 0;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+nav [class*="fa-"] {
+    font-size: 150%;
+    color: var(--aqua);
+}
+
+nav [class*="fa-code"] {
+    font-size: 99%;
+    color: var(--aqua);
+}
+
+nav a:hover,
+nav [class*="fa-"]:hover {
+    color: var(--margent);
+}
+
+ul li {
+    /* remove the default bullet points from the list items. */
+    list-style-type: none;
+    padding: 1rem;
+}
+
+ul li:first-child {
+   font-size: 1.5rem;
+}
+
+button {
+    background-color: var(--margent);
+    color: var(--white);
+    border-radius: 5px;
+    border: none;
+    padding: 0.5rem;
+}
+
+button:hover {
+    color: var(--white);
+    background-color: var(--hotmag);
+}
