@@ -8,6 +8,7 @@ The variables are defined using the var() function and are accessed using the va
     --aqua: #00ffff;
     --darkblue :  #161629;
     --lighgray: #A9A9A9;
+    --darkbluegren: #022a32;
     --mono: 'Roboto Mono', monospace;
     --sans: 'Liberation Sans', sans-serif;
 }
@@ -37,9 +38,13 @@ This is the font size that browsers usually use when you don't specify a font si
 }
 
 body {
+    padding-top: 1rem;
+}
+
+header,
+main {
     margin-left: 2em;
     margin-right: 2rem;
-    padding-top: 1rem;
 }
 
 nav {
@@ -159,6 +164,20 @@ The <span> element is a generic inline container that can be used to group text 
     font-size: 4rem;
 }
 
+.horizontal-line {
+    padding-bottom: 3px;
+    background: linear-gradient(to right,var(--margent), var(--aqua));
+  }
+
+footer {
+    white-space: break-spaces;
+    line-height: 1;
+    text-align: center;
+    background-color: var(--darkbluegren);
+    font-size: 1rem;
+    color: var(--white);
+}
+  
 /* When the page size is 850px or larger, the @media rule will be applied. */
 @media (min-width: 850px) {
    nav {
