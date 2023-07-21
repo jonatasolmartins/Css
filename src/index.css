@@ -9,6 +9,7 @@ The variables are defined using the var() function and are accessed using the va
     --darkblue :  #161629;
     --lighgray: #A9A9A9;
     --darkbluegren: #022a32;
+    --darkestblue :  #080812;
     --mono: 'Roboto Mono', monospace;
     --sans: 'Liberation Sans', sans-serif;
 }
@@ -37,18 +38,15 @@ This is the font size that browsers usually use when you don't specify a font si
     box-sizing: inherit;
 }
 
-body {
-    padding-top: 1rem;
-}
 
 header,
 main {
     margin-left: 2em;
-    margin-right: 2rem;
+    margin-right: 2em;
 }
 
 nav {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -57,23 +55,24 @@ nav {
     gap: 1rem;
 }
 
-nav a {
+
+header a {
     color: var(--white);
     text-decoration: none;
 }
 
-nav [class*="fa-"] {
+header [class*="fa-"] {
     font-size: 150%;
     color: var(--aqua);
 }
 
-nav h1 [class*="fa"] {
+header h1 [class*="fa"] {
     font-size: 99%;
     color: var(--aqua);
 }
 
-nav a:hover,
-nav [class*="fa-"]:hover {
+header a:hover,
+header [class*="fa-"]:hover {
     color: var(--margent);
 }
 
@@ -81,10 +80,41 @@ header {
     display: block;
 }
 
+.header-container {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--lighgray);
+}
+
+header .row {
+    display: inline;
+}
+
+header .row h1 {
+    display: inline;
+    margin-right: 1rem;
+}
+
+/* Set the checkbox to be hidden. */
+#menu__toggle {
+    opacity: 0;
+}
+
+/* This is a CSS rule that targets an element with the class main-menu when a checkbox with the ID menu__toggle is checked.
+ The rule sets the display property of the main-menu element to flex, which causes it to be displayed as a flex container.
+
+The ~ selector is used to select siblings that come after the first element. 
+In this case, the ~ selector is used to select the main-menu element that comes after the menu__toggle checkbox in the HTML markup. */
+#menu__toggle:checked ~ .main-menu {
+    display: flex;
+}
+
 nav li:first-child {
     /* The first li element is given a flex-basis of 100% so that it takes up the entire width of the page. */
     flex-basis: 100%;
     text-align: center;
+    display: none;
 }
 
 ul {
@@ -111,20 +141,6 @@ button {
 button:hover {
     color: var(--white);
     background-color: var(--hotmag);
-}
-
-a {
-    color: var(--margent);
-}
-
-/* The :hover pseudo-class is used to target an element when the user hovers over it with their mouse.
- In this case, it targets anchor elements. */
-a:hover {
-    /* When an anchor element is hovered over, the color property is set to the value of the --hotmag variable using the var() function.
-     This means that the color of the text will change to the value of the --hotmag variable when the user hovers over the link. */
-    color: var(--hotmag);
-    /* The text-decoration property is also set to none, which means that the underline that is typically displayed under links will be removed when the user hovers over the link. */
-    text-decoration: none;
 }
 
 #intro {
@@ -164,10 +180,24 @@ The <span> element is a generic inline container that can be used to group text 
     font-size: 4rem;
 }
 
+a {
+    color: var(--margent);
+}
+
+/* The :hover pseudo-class is used to target an element when the user hovers over it with their mouse.
+ In this case, it targets anchor elements. */
+a:hover {
+    /* When an anchor element is hovered over, the color property is set to the value of the --hotmag variable using the var() function.
+     This means that the color of the text will change to the value of the --hotmag variable when the user hovers over the link. */
+    color: var(--hotmag);
+    /* The text-decoration property is also set to none, which means that the underline that is typically displayed under links will be removed when the user hovers over the link. */
+    text-decoration: none;
+}
+
 .horizontal-line {
     padding-bottom: 3px;
     background: linear-gradient(to right,var(--margent), var(--aqua));
-  }
+}
 
 footer {
     white-space: break-spaces;
@@ -201,4 +231,30 @@ footer {
        margin: 0 auto;
    }
 
+}
+
+@media (min-width: 550px) {
+
+    header .row {
+        display: none;
+    }
+    nav {
+        display: flex;
+    }
+
+    .header-container {
+        background-color: unset;
+    }
+
+    nav li:first-child {
+      display: block;
+    }
+
+    #menu_btn {
+        display: none;
+    }
+
+    #menu__toggle {
+        display: none;
+    }
 }

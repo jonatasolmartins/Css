@@ -8,26 +8,34 @@
     <title>Css Master</title>
 </head>
 <body>
-    <header>
-        <nav class="main-menu">
-            <ul>
-                <li>
-                    <h1><i class="fa-solid fa-code"></i> Jonatas Martins</h1>
-                </li>
-                <li><a href="/src/projects.html">Projects</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-                <li>
-                    <a href="https://www.linkedin.com/in/jonatas-ol-martins-038a9513/"><i class="fa-brands fa-linkedin-in"></i></a>
-                </li>
-                <li>
-                    <a href="https://github.com/jonatasolmartins"><i class="fa-brands fa-square-github"></i></a>
-                </li>
-                <li><Button>Resume</Button></li>
-            </ul>
-        </nav>
-    </header>
-   
+    <div class="header-container">
+        <header>
+            <div class="row">
+                <h1><i class="fa-solid fa-code"></i> Free the code</h1>
+            </div>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span class="fa-solid fa-bars" id="menu_btn"></span>
+            </label>
+            <nav class="main-menu" aria-label="main-menu">
+                <ul>
+                    <li>
+                        <h1><i class="fa-solid fa-code"></i> Free the code</h1>
+                    </li>
+                    <li><a href="/src/projects.html">Projects</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/jonatas-ol-martins-038a9513/"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/jonatasolmartins"><i class="fa-brands fa-square-github"></i></a>
+                    </li>
+                    <li><Button>Resume</Button></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
     <main>
         <section id="intro">
             <p class="name">Hi, my name is <span>Jonatas Martins.</span></p>
