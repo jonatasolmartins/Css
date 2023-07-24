@@ -1,7 +1,20 @@
 /* Defines global variables that can be used throughout the document. 
 The variables are defined using the var() function and are accessed using the var() function. */
 
+
+/* 
+    The value of this property is calculated using the clamp() function, which creates a range of values that are bounded by a minimum and maximum value.
+    The clamp() function takes three arguments: a minimum value, a preferred value, and a maximum value.
+    In this case, the minimum value is 3.5rem, the preferred value is 12vw + 1rem, and the maximum value is 12rem.
+    The vw unit is a relative unit that represents a percentage of the viewport width, so 12vw is equal to 12% of the viewport width.
+
+    The purpose of this code is to set the font size of an element to a responsive value that scales with the viewport width. 
+    The clamp() function ensures that the font size will never be smaller than 3.5rem or larger than 12rem, and will be based on the viewport width when it is between these two values.
+*/
+
 :root {
+    --fs-xl: clamp(min(3rem), calc(4vw + 1rem), max(5rem));
+    --fs-sm: clamp(min(1rem), calc(1vw + 0.2rem), max(4rem));
     --white: #ffffff;
     --margent: 	#A300A3;
     --hotmag: #ff0000;
@@ -50,7 +63,8 @@ nav {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 0rem 0rem 2rem;
+    font-size: var(--fs-sm);
+    padding: 0;
     margin: 0;
     gap: 1rem;
 }
@@ -66,18 +80,30 @@ header [class*="fa-"] {
     color: var(--aqua);
 }
 
-header h1 [class*="fa"] {
-    font-size: 99%;
-    color: var(--aqua);
+header li:first-child::after {
+    content: "Free the code";
+    font-size: 2rem;
+    color: var(--white);
+    padding-left: 0.5rem;
 }
+
+#menu_logo::after {
+    content: "Free the code";
+    font-size: 1.5rem;
+    font-family: var(--sans);
+    color: var(--white);
+    padding-left: 0.5rem;
+}
+
 
 header a:hover,
 header [class*="fa-"]:hover {
-    color: var(--margent);
+    color: var(--hotmag);
 }
 
 header {
     display: block;
+    position: relative;
 }
 
 .header-container {
@@ -87,13 +113,11 @@ header {
     background-color: var(--lighgray);
 }
 
-header .row {
-    display: inline;
-}
-
-header .row h1 {
-    display: inline;
-    margin-right: 1rem;
+#menu__toggle,
+.menu__btn {
+    position: absolute;
+    right: 0rem;
+    top: 0.5rem;
 }
 
 /* Set the checkbox to be hidden. */
@@ -151,7 +175,7 @@ button:hover {
 #intro p {
     /* The font-size property is set to 1rem which means that the font size of the text will be 16px.
      This is because the font size of the html element is set to 16px. */
-    font-size: 1rem;
+    font-size: var(--fs-sm);
     /* The line-height property is set to 1.5 which means that the line height of the text will be 1.5 times the font size of the text.
      Since the font size of the text is 16px, the line height of the text will be 24px. */
      /* I omitted the unit of measurement so the size is relative to the font size of the text and not a fixed value. */
@@ -166,10 +190,10 @@ This can be used to style a specific section of the webpage, such as an introduc
 
 /* The .name span selector targets all <span> elements that are descendants of an element with the class of name. 
 The <span> element is a generic inline container that can be used to group text or other inline elements. */
-.name span {
+p.name span {
     font-family: var(--sans);
     /* Font-size will be 64px since html font-size is set to 16px */
-    font-size: 4rem;
+    font-size: var(--fs-xl);
     color: var(--aqua);
     /* An span element is an inline element by default, which means that it will be displayed on the same line as the text that comes before and after it.
     So to make the span element display on its own line, the display property is set to block. */
@@ -177,7 +201,7 @@ The <span> element is a generic inline container that can be used to group text 
 }
 
 #intro h2 {
-    font-size: 4rem;
+    font-size: var(--fs-xl);
 }
 
 a {
@@ -199,19 +223,25 @@ a:hover {
     background: linear-gradient(to right,var(--margent), var(--aqua));
 }
 
+#footer {
+    background-color: var(--darkbluegren);
+    height: clamp(10vh, 25vw + 2rem, 40vh);
+}
 footer {
-    white-space: break-spaces;
+    padding-top: 2rem;
     line-height: 1;
     text-align: center;
     background-color: var(--darkbluegren);
-    font-size: 1rem;
+    font-size: var(--fs-sm);
     color: var(--white);
 }
   
 /* When the page size is 850px or larger, the @media rule will be applied. */
 @media (min-width: 850px) {
-   nav {
-       /* Fix the max size of the nav bar to 1250px and center it.  */
+
+   nav,
+   section {
+       /* Fix the max size of the nav bar and section to 1250px and center it.  */
        max-width: 1250px;
        margin: 0 auto;
    }
@@ -226,35 +256,27 @@ footer {
         margin-right: auto;
    }
 
-   section {
-       max-width: 1250px;
-       margin: 0 auto;
-   }
-
 }
 
 @media (min-width: 550px) {
 
-    header .row {
+    #menu_btn,
+    #menu__toggle,
+    #menu_logo
+    {
         display: none;
     }
+
     nav {
         display: flex;
+    }
+
+    nav li:first-child {
+        display: block;
     }
 
     .header-container {
         background-color: unset;
     }
 
-    nav li:first-child {
-      display: block;
-    }
-
-    #menu_btn {
-        display: none;
-    }
-
-    #menu__toggle {
-        display: none;
-    }
 }
